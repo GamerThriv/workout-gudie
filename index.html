@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitPath — Your Personal Workout & Diet Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-badge">FREE · BEGINNER-FRIENDLY · SCIENCE-BACKED</div>
+  <h1 class="hero-title">Build your body.<br><span>Your way.</span></h1>
+  <p class="hero-sub">Answer 7 quick questions — get a full workout plan, daily diet, and monthly grocery budget tailored to you. No gym experience needed.</p>
+  <a href="#quiz" class="cta-btn">Start My Plan →</a>
+  <div class="hero-stats">
+    <div><strong>3 Body Types</strong><span>Covered</span></div>
+    <div><strong>5 Goal Paths</strong><span>Available</span></div>
+    <div><strong>100% Free</strong><span>No sign-up</span></div>
+  </div>
+</section>
+
+<section class="quiz-wrap" id="quiz">
+  <div class="quiz-card" id="quiz-card">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="step-label" id="step-label">Step 1 of 7</div>
+    <div class="quiz-steps" id="quiz-steps">
+
+      <div class="step active" data-step="1">
+        <h2>What's your name?</h2>
+        <p>So we can personalise your plan.</p>
+        <input type="text" id="q-name" class="quiz-input" placeholder="e.g. Alex" maxlength="30" />
+        <button class="next-btn" onclick="nextStep(1)">Continue</button>
+      </div>
+
+      <div class="step" data-step="2">
+        <h2>What's your main goal?</h2>
+        <p>Pick the one that matters most right now.</p>
+        <div class="choice-grid">
+          <div class="choice" data-val="lose_fat" onclick="selectChoice(this,'goal')">🔥 Lose Fat</div>
+          <div class="choice" data-val="build_muscle" onclick="selectChoice(this,'goal')">💪 Build Muscle</div>
+          <div class="choice" data-val="stay_fit" onclick="selectChoice(this,'goal')">🏃 Stay Fit</div>
+          <div class="choice" data-val="gain_weight" onclick="selectChoice(this,'goal')">📈 Gain Weight</div>
+          <div class="choice" data-val="improve_stamina" onclick="selectChoice(this,'goal')">⚡ Improve Stamina</div>
+        </div>
+        <button class="next-btn" onclick="nextStep(2)">Continue</button>
+      </div>
+
+      <div class="step" data-step="3">
+        <h2>What's your body type?</h2>
+        <p>Be honest — this shapes your entire plan.</p>
+        <div class="body-type-grid">
+          <div class="body-card" data-val="ectomorph" onclick="selectChoice(this,'body_type')">
+            <div class="body-icon">🦴</div>
+            <strong>Ectomorph</strong>
+            <span>Slim, hard to gain weight, fast metabolism</span>
+          </div>
+          <div class="body-card" data-val="mesomorph" onclick="selectChoice(this,'body_type')">
+            <div class="body-icon">⚖️</div>
+            <strong>Mesomorph</strong>
+            <span>Athletic build, gains muscle &amp; fat easily</span>
+          </div>
+          <div class="body-card" data-val="endomorph" onclick="selectChoice(this,'body_type')">
+            <div class="body-icon">🫙</div>
+            <strong>Endomorph</strong>
+            <span>Larger frame, gains fat easily, slower metabolism</span>
+          </div>
+        </div>
+        <button class="next-btn" onclick="nextStep(3)">Continue</button>
+      </div>
+
+      <div class="step" data-step="4">
+        <h2>How much workout experience do you have?</h2>
+        <div class="choice-grid">
+          <div class="choice" data-val="beginner" onclick="selectChoice(this,'experience')">🌱 Beginner (0–3 months)</div>
+          <div class="choice" data-val="intermediate" onclick="selectChoice(this,'experience')">🌿 Intermediate (3–12 months)</div>
+          <div class="choice" data-val="advanced" onclick="selectChoice(this,'experience')">🌳 Advanced (1+ years)</div>
+        </div>
+        <button class="next-btn" onclick="nextStep(4)">Continue</button>
+      </div>
+
+      <div class="step" data-step="5">
+        <h2>What equipment do you have access to?</h2>
+        <div class="choice-grid">
+          <div class="choice" data-val="no_equipment" onclick="selectChoice(this,'equipment')">🏠 No Equipment (Home)</div>
+          <div class="choice" data-val="basic" onclick="selectChoice(this,'equipment')">🎽 Resistance Bands / Dumbbells</div>
+          <div class="choice" data-val="full_gym" onclick="selectChoice(this,'equipment')">🏋️ Full Gym Access</div>
+        </div>
+        <button class="next-btn" onclick="nextStep(5)">Continue</button>
+      </div>
+
+      <div class="step" data-step="6">
+        <h2>Any dietary preference?</h2>
+        <div class="choice-grid">
+          <div class="choice" data-val="no_restriction" onclick="selectChoice(this,'diet_pref')">🍗 No Restriction</div>
+          <div class="choice" data-val="vegetarian" onclick="selectChoice(this,'diet_pref')">🥦 Vegetarian</div>
+          <div class="choice" data-val="vegan" onclick="selectChoice(this,'diet_pref')">🌱 Vegan</div>
+          <div class="choice" data-val="high_protein" onclick="selectChoice(this,'diet_pref')">🥩 High Protein Focus</div>
+        </div>
+        <button class="next-btn" onclick="nextStep(6)">Continue</button>
+      </div>
+
+      <div class="step" data-step="7">
+        <h2>What's your monthly diet budget?</h2>
+        <p>This helps us plan affordable, nutritious meals.</p>
+        <div class="choice-grid">
+          <div class="choice" data-val="low" onclick="selectChoice(this,'budget')">💸 Low (₹1,500–₹2,500/mo)</div>
+          <div class="choice" data-val="medium" onclick="selectChoice(this,'budget')">💰 Medium (₹2,500–₹4,500/mo)</div>
+          <div class="choice" data-val="high" onclick="selectChoice(this,'budget')">💎 Flexible (₹4,500+/mo)</div>
+        </div>
+        <button class="next-btn" onclick="generatePlan()">Build My Plan →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="plan-section" class="plan-section hidden">
+  <div class="plan-header">
+    <h2 id="plan-greeting">Your FitPath Plan</h2>
+    <p id="plan-subheading">Personalised for your body, goal, and lifestyle</p>
+    <div class="plan-tags" id="plan-tags"></div>
+  </div>
+  <div class="plan-grid">
+    <div class="plan-block full-width">
+      <div class="block-title">🏋️ Weekly Workout Schedule</div>
+      <div id="workout-schedule"></div>
+    </div>
+    <div class="plan-block full-width">
+      <div class="block-title">🥗 Daily Diet Plan</div>
+      <div id="diet-plan"></div>
+    </div>
+    <div class="plan-block full-width">
+      <div class="block-title">🛒 Monthly Grocery Budget</div>
+      <div id="budget-plan"></div>
+    </div>
+    <div class="plan-block full-width">
+      <div class="block-title">💡 Key Tips for You</div>
+      <div id="tips-plan"></div>
+    </div>
+  </div>
+  <div class="plan-actions">
+    <button onclick="printPlan()" class="action-btn">🖨️ Print / Save as PDF</button>
+    <button onclick="resetQuiz()" class="action-btn secondary">↩ Restart Quiz</button>
+  </div>
+</section>
+
+<section class="how-section">
+  <h3>How FitPath works</h3>
+  <div class="steps-row">
+    <div class="step-item"><div class="step-num">1</div><strong>Answer 7 questions</strong><span>Body type, goal, equipment, diet preference</span></div>
+    <div class="step-item"><div class="step-num">2</div><strong>Get your plan</strong><span>Full 7-day workout + daily meals + grocery budget</span></div>
+    <div class="step-item"><div class="step-num">3</div><strong>Follow &amp; progress</strong><span>Each exercise has clear form instructions</span></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>FitPath · Free forever · Made with ❤️ for beginners</p>
+  <p class="footer-note">Always consult a doctor before starting a new exercise program.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
