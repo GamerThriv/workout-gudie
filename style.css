@@ -226,19 +226,20 @@ body {
   padding: 0 20px 80px;
 }
 
-.plan-header { text-align: center; padding: 52px 0 32px; }
+.plan-header { text-align: center; padding: 34px 0 28px; }
 .plan-header h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
-  color: var(--ink);
+  font-size: clamp(36px, 6vw, 52px);
+  color: #263448;
+  letter-spacing: 0.02em;
   margin-bottom: 8px;
 }
-.plan-header p { color: var(--ink-muted); font-size: 15px; margin-bottom: 16px; }
+.plan-header p { color: #7b8493; font-size: 14px; margin-bottom: 14px; }
 
 .plan-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .plan-tag {
-  background: var(--ink);
-  color: var(--lime);
+  background: #667080;
+  color: #eef3f8;
   font-size: 11px;
   font-weight: 600;
   padding: 4px 12px;
