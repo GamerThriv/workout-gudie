@@ -53,7 +53,7 @@ function generatePlan() {
   planSection.classList.remove('hidden');
 
   // Header
-  document.getElementById('plan-greeting').textContent = `${name}'s FitPath Plan`;
+  document.getElementById('plan-greeting').textContent = `${name.toUpperCase()}'S FITPATH PLAN`;
   document.getElementById('plan-subheading').textContent =
     `Tailored for a ${body_type} body type · Goal: ${goal.replace(/_/g,' ')} · ${experience}`;
 
